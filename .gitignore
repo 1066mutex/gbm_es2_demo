@@ -58,3 +58,8 @@ TAGS
 *.exe
 *.out
 *.app
+
+# Cache files
+.cache
+
+build/

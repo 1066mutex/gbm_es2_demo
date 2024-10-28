@@ -37,6 +37,7 @@ include_directories(
     ${EGL_INCLUDE_DIRS}
     ${GLESV2_INCLUDE_DIRS}
     ${CUSTOM_INCLUDE_DIRS}
+    /usr/include
 )
 set(LIBS ${LIBS} ${DRM_LIBRARIES} ${GBM_LIBRARIES} ${EGL_LIBRARIES} ${GLESV2_LIBRARIES})
 

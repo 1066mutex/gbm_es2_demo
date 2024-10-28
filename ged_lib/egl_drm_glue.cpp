@@ -417,19 +417,14 @@ class EGLDRMGlue::Impl : public DRMModesetter::Client {
       return false;
     }
 
-    const EGLint khr_image_attrs[] = {EGL_DMA_BUF_PLANE0_FD_EXT,
-                                      framebuffer.fd,
-                                      EGL_WIDTH,
-                                      width,
-                                      EGL_HEIGHT,
-                                      height,
-                                      EGL_LINUX_DRM_FOURCC_EXT,
-                                      GBM_FORMAT_XRGB8888,
-                                      EGL_DMA_BUF_PLANE0_PITCH_EXT,
-                                      static_cast<const int>(stride),
-                                      EGL_DMA_BUF_PLANE0_OFFSET_EXT,
-                                      static_cast<const int>(offset),
-                                      EGL_NONE};
+    const EGLint khr_image_attrs[] = {
+        EGL_DMA_BUF_PLANE0_FD_EXT,     framebuffer.fd,
+        EGL_WIDTH,                     width,
+        EGL_HEIGHT,                    height,
+        EGL_LINUX_DRM_FOURCC_EXT,      GBM_FORMAT_XRGB8888,
+        EGL_DMA_BUF_PLANE0_PITCH_EXT,  static_cast<const int>(stride),
+        EGL_DMA_BUF_PLANE0_OFFSET_EXT, static_cast<const int>(offset),
+        EGL_NONE};
 
     framebuffer.image =
         egl_.CreateImageKHR(egl_.display, EGL_NO_CONTEXT, EGL_LINUX_DMA_BUF_EXT,
